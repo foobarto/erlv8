@@ -3,6 +3,7 @@
 		 internal_field_count/0, get_internal_field/1, set_internal_field/2,
 		 set_prototype/1, get_prototype/0, delete/1, set_accessor/2, set_accessor/3, set_accessor/4, set_accessor/5,
 		 equals/1, strict_equals/1, call/1, call/2,new/1]).
+-export([set_vm/1]).
 
 proplist() ->
 	erlv8_vm:enqueue_tick(VM,{proplist, Resource}).
@@ -106,3 +107,6 @@ call(Fun,Args) ->
 new(O) ->
 	instance(O,undefined).
 	
+set_vm(NewVM) ->
+    ?MODULE:instance(Resource, NewVM).
+

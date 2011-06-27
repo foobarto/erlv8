@@ -1,6 +1,7 @@
 -module(erlv8_fun,[Resource,VM]).
 -extends(erlv8_object).
 -export([call/0,call/1,call/2,instantiate/0, instantiate/1, object/0]).
+-export([set_vm/1]).
 
 call() ->
 	call([]).
@@ -22,3 +23,7 @@ instantiate(Args) when is_list(Args) ->
 
 object() ->
 	{erlv8_object, Resource, VM}.
+
+set_vm(NewVM) ->
+    ?MODULE:new(Resource, NewVM).
+
